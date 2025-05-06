@@ -1,0 +1,59 @@
+/* Background gradient animation */
+@keyframes backgroundGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.app-background {
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(270deg, #ff7e5f, #feb47b, #86a8e7, #91eae4);
+  background-size: 800% 800%;
+  animation: backgroundGradientShift 30s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Glass container with blur effect */
+.glass-container {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  width: 100%;
+  max-width: 1200px;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 90vh;
+  overflow: hidden;
+}
+
+/* Make content inside glass-container uncentered (full width) */
+.glass-container > * {
+  width: 100%;
+}
+
+/* Responsive padding */
+@media (max-width: 768px) {
+  .app-background {
+    padding: 1rem;
+  }
+  .glass-container {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+}

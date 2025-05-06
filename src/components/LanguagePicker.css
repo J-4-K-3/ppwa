@@ -1,0 +1,64 @@
+.language-picker {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ff7e5f, #feb47b, #86a8e7, #91eae4);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.language-cards {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 600px;
+  justify-content: center;
+}
+
+.language-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  padding: 2rem;
+  flex: 1;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  user-select: none;
+}
+
+.language-card:hover,
+.language-card:focus {
+  background: rgba(255, 255, 255, 0.3);
+  outline: none;
+}
+
+.language-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .language-cards {
+    flex-direction: column;
+    max-width: 300px;
+  }
+}

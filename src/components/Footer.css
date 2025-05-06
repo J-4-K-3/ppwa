@@ -1,0 +1,207 @@
+.footer {
+  position: relative;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.footer-content {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.footer-info {
+  display: flex;
+  gap: 2rem;
+  flex: 1 1 60%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.socials, .contact, .more {
+  flex: 1 1 150px;
+}
+
+@media (max-width: 768px) {
+  .footer-info {
+    flex-direction: column;
+    align-items: center;
+  }
+  .socials, .contact, .more {
+    flex: none;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 1rem;
+  }
+}
+
+.socials h4, .contact h4, .more h4 {
+  margin-bottom: 0.5rem;
+  user-select: none;
+}
+
+.socials a, .more a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 0.25rem;
+  transition: color 0.3s ease;
+  user-select: none;
+}
+
+.socials a:hover, .more a:hover {
+  color: #feb47b;
+}
+
+.contact p {
+  margin: 0.25rem 0;
+  user-select: none;
+}
+
+.email-signup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  flex: 1 1 30%;
+  min-width: 250px;
+}
+
+.email-signup label {
+  font-weight: 600;
+  user-select: none;
+}
+
+.email-signup input {
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.email-signup button {
+  background: linear-gradient(45deg, #ff7e5f, #feb47b);
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  user-select: none;
+}
+
+.email-signup button:hover {
+  background: linear-gradient(45deg, #feb47b, #ff7e5f);
+}
+
+.success-message {
+  color: #a0f0a0;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  user-select: none;
+}
+
+.emotional-quote {
+  font-style: italic;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  user-select: none;
+  text-align: center;
+}
+
+.quick-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.quick-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.quick-links a:hover {
+  color: #feb47b;
+}
+
+.email-signup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.email-signup label {
+  font-weight: 600;
+}
+
+.email-signup input {
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  width: 250px;
+  max-width: 100%;
+  font-size: 1rem;
+}
+
+.email-signup button {
+  background: linear-gradient(45deg, #ff7e5f, #feb47b);
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.email-signup button:hover {
+  background: linear-gradient(45deg, #feb47b, #ff7e5f);
+}
+
+.success-message {
+  color: #a0f0a0;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.footer-background {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 200%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255, 126, 95, 0.3), transparent 70%);
+  transform: translateX(-50%);
+  animation: ripple 6s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.1);
+    opacity: 0.8;
+  }
+}
