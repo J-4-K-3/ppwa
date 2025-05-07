@@ -63,7 +63,7 @@ function App() {
   const [language, setLanguage] = React.useState('en')
 
   React.useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000)
+    const timer = setTimeout(() => setLoading(false), 10000)
     return () => clearTimeout(timer)
   }, [])
 

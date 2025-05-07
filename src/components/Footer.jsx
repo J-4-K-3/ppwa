@@ -29,7 +29,8 @@ const Footer = () => {
           <div className="contact">
             <h4>Contact</h4>
             <p>Email: <a href='mailto:hlengiwechilu@gmail.com'>Foundation</a></p>
-            <p>Phone: <a href="tel:+27697577311">Call Admin</a></p>
+            <p>Admin Phone: <a href="tel:+27697577311">Call Here</a></p>
+            <p>Second Phone: <a href="tel:+27602173252">Call Now</a></p>
             <p>Foundation Address:</p>
             <p>Mnamatha Road, KwaSondela</p>
             <p>Qadi, 3610 South Africa</p>

@@ -11,7 +11,8 @@ const Contact = () => {
       />
       <p>If you have any questions or would like to get in touch with us, please use the contact information below or fill out the contact form.</p>
       <p>Email: hlengiwechilu@gmail.com</p>
-      <p>Phone: +27 69 757 7311</p>
+      <p>Admin Phone: +27 69 757 7311</p>
+      <p>Second Phone: +27 60 217 3252</p>
       <p>Foundation Address:</p>
       <p>Mnamatha Road, KwaSondela</p>
       <p>Qadi, 3610 South Africa</p>
