@@ -1,26 +1,43 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Chatbot.css'
 
-const Chatbot = () => {
-  const [open, setOpen] = useState(false)
+const Chatbot = ({ autoOpen = false }) => {
+  const [open, setOpen] = useState(autoOpen)
   const [messages, setMessages] = useState([
     { from: 'bot', text: 'Hello! I am Assistant Zinhle. How can I help you today?' },
   ])
   const [input, setInput] = useState('')
 
+  useEffect(() => {
+    setOpen(autoOpen)
+  }, [autoOpen])
+
   const toggleOpen = () => setOpen(!open)
 
   const handleSend = () => {
     if (!input.trim()) return
+
+    const userMessage = input.trim().toLowerCase()
     setMessages([...messages, { from: 'user', text: input }])
     setInput('')
-    // Simulate bot response
-    setTimeout(() => {
-      setMessages((msgs) => [
-        ...msgs,
-        { from: 'bot', text: 'Thank you for your message. We will get back to you soon.' },
-      ])
-    }, 1000)
+
+    // Simple GPT-like logic for greetings
+    if (userMessage === 'hi' || userMessage === 'hello' || userMessage === 'hey') {
+      setTimeout(() => {
+        setMessages((msgs) => [
+          ...msgs,
+          { from: 'bot', text: 'Hello! How can I assist you today?' },
+        ])
+      }, 500)
+    } else {
+      // Default response
+      setTimeout(() => {
+        setMessages((msgs) => [
+          ...msgs,
+          { from: 'bot', text: 'Thank you for your message. We will get back to you soon.' },
+        ])
+      }, 1000)
+    }
   }
 
   return (
@@ -50,9 +67,11 @@ const Chatbot = () => {
           </div>
         </div>
       )}
-      <button className="chatbot-toggle" onClick={toggleOpen} aria-label="Open chat">
-        💬
-      </button>
+      {!open && (
+        <button className="chatbot-toggle" onClick={toggleOpen} aria-label="Open chat">
+          💬
+        </button>
+      )}
     </>
   )
 }

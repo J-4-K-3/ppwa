@@ -8,9 +8,10 @@ import Volunteer from './pages/Volunteer'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Community from './pages/Community'
+import Gallery from './pages/Gallery'
+import ChatbotPage from './pages/ChatbotPage'
 import LoadingScreen from './components/LoadingScreen'
 import LanguagePicker from './components/LanguagePicker'
-import Chatbot from './components/Chatbot'
 import './styles/global.css'
 
 const translations = {
@@ -22,12 +23,12 @@ const translations = {
     about: 'About',
     contact: 'Contact',
     community: 'Community',
+    gallery: 'Gallery',
+    chatbot: 'Chatbot',
     subscribeLabel: 'Subscribe to our newsletter',
     subscribePlaceholder: 'Your email',
     subscribeButton: 'Subscribe',
     subscribeThankYou: 'Thank you for subscribing!',
-    chatbotGreeting: 'Hello! I am Assistant Zinhle. How can I help you today?',
-    chatbotResponse: 'Thank you for your message. We will get back to you soon.',
     languagePickerTitle: 'Please select your language',
     languageEnglish: 'English',
     languageZulu: 'IsiZulu',
@@ -42,12 +43,12 @@ const translations = {
     about: 'Mayelana',
     contact: 'Xhumana Nathi',
     community: 'Umphakathi',
+    gallery: 'Igallari',
+    chatbot: 'I-Chatbot',
     subscribeLabel: 'Bhalisela incwadi yezindaba yethu',
     subscribePlaceholder: 'I-imeyili yakho',
     subscribeButton: 'Bhalisa',
     subscribeThankYou: 'Ngiyabonga ngokubhalisa!',
-    chatbotGreeting: 'Sawubona! NginguMsizi uZinhle. Ngingakusiza kanjani namuhla?',
-    chatbotResponse: 'Ngiyabonga ngomlayo wakho. Sizokuphendula maduzane.',
     languagePickerTitle: 'Sicela ukhethe ulimi lwakho',
     languageEnglish: 'IsiNgisi',
     languageZulu: 'IsiZulu',
@@ -60,16 +61,11 @@ function App() {
   const [loading, setLoading] = React.useState(true)
   const [languageSelected, setLanguageSelected] = React.useState(false)
   const [language, setLanguage] = React.useState('en')
-  const [chatbotOpen, setChatbotOpen] = React.useState(false)
 
   React.useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 10000)
+    const timer = setTimeout(() => setLoading(false), 2000)
     return () => clearTimeout(timer)
   }, [])
-
-  const toggleChatbot = () => {
-    setChatbotOpen(!chatbotOpen)
-  }
 
   const handleLanguageSelect = (lang) => {
     setLanguage(lang)
@@ -86,7 +82,7 @@ function App() {
 
   return (
     <Router>
-      <MainLayout language={language} toggleChatbot={toggleChatbot} translations={translations[language]}>
+      <MainLayout language={language} translations={translations[language]}>
         <Routes>
           <Route path="/" element={<HomePage language={language} translations={translations[language]} />} />
           <Route path="/our-work" element={<OurWork language={language} translations={translations[language]} />} />
@@ -95,8 +91,9 @@ function App() {
           <Route path="/about" element={<About language={language} translations={translations[language]} />} />
           <Route path="/contact" element={<Contact language={language} translations={translations[language]} />} />
           <Route path="/community" element={<Community language={language} translations={translations[language]} />} />
+          <Route path="/gallery" element={<Gallery language={language} translations={translations[language]} />} />
+          <Route path="/chatbot" element={<ChatbotPage language={language} translations={translations[language]} />} />
         </Routes>
-        {chatbotOpen && <Chatbot language={language} translations={translations[language]} />}
       </MainLayout>
     </Router>
   )

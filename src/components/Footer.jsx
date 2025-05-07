@@ -23,15 +23,21 @@ const Footer = () => {
         <div className="footer-info">
           <div className="socials">
             <h4>Socials</h4>
-            <a href="https://facebook.com/ppwa" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="https://www.facebook.com/profile.php?id=100067750035014" target="_blank" rel="noopener noreferrer">Facebook</a>
             <a href="https://wa.me/27697577311" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-            <a href="https://instagram.com/ppwa" target="_blank" rel="noopener noreferrer">Instagram</a>
           </div>
           <div className="contact">
             <h4>Contact</h4>
             <p>Email: <a href='mailto:hlengiwechilu@gmail.com'>Foundation</a></p>
             <p>Phone: <a href="tel:+27697577311">Call Admin</a></p>
-            <p>Address: Outer Durban West, South Africa</p>
+            <p>Foundation Address:</p>
+            <p>Mnamatha Road, KwaSondela</p>
+            <p>Qadi, 3610 South Africa</p>
+            <p>
+              <a href="https://maps.app.goo.gl/BXsTRjepRr59Mpbs6?g_st=aw" target="_blank" rel="noopener noreferrer">
+                Google Maps
+              </a>
+            </p>
           </div>
           <div className="more">
             <h4>More</h4>

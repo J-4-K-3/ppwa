@@ -1,66 +1,37 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import video1 from '../assets/video_1.mp4'
-import video2 from '../assets/video_2.mp4'
-import image1 from '../assets/image_1.jpeg'
-import image2 from '../assets/image_2.jpeg'
-import image3 from '../assets/image_3.jpeg'
-import image4 from '../assets/image_4.jpeg'
-import image5 from '../assets/image_5.jpeg'
+import person1 from '../assets/person_1.jpeg'
+import person2 from '../assets/person_2.jpeg'
+import person3 from '../assets/person_3.jpeg'
+import person4 from '../assets/person_4.jpeg'
+import person5 from '../assets/person_5.jpeg'
+import person6 from '../assets/person_6.jpeg'
+import person7 from '../assets/person_7.jpeg'
 import './HomePage.css'
 
-const videos = [video1, video2]
-
-const images = [image1, image2, image3, image4, image5]
+const images = [person1, person2, person3, person4, person5, person6, person7]
 
 const HomePage = ({ translations }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const slides = [...videos, ...images]
-  const totalSlides = slides.length
+  const totalSlides = images.length
   const navigate = useNavigate()
 
-  const goToPrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? totalSlides - 1 : prevIndex - 1))
-  }
-
-  const goToNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides)
-  }
-
-  const renderSlide = (index) => {
-    if (index < videos.length) {
-      return (
-        <video
-          key={index}
-          src={videos[index]}
-          autoPlay
-          muted
-          loop
-          className="carousel-media"
-        />
-      )
-    } else {
-      const imageIndex = index - videos.length
-      return (
-        <img
-          key={index}
-          src={images[imageIndex]}
-          alt={`Slide ${imageIndex + 1}`}
-          className="carousel-media"
-        />
-      )
-    }
-  }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides)
+    }, 3000) // slide every 3 seconds
+    return () => clearInterval(interval)
+  }, [totalSlides])
 
   return (
     <div className="homepage">
       <section className="hero-section">
-        <div className="single-slide-carousel">
-          <button className="carousel-button prev" onClick={goToPrev} aria-label="Previous Slide">&#10094;</button>
-          <div className="carousel-slide-container">
-            {renderSlide(currentIndex)}
-          </div>
-          <button className="carousel-button next" onClick={goToNext} aria-label="Next Slide">&#10095;</button>
+        <div className="auto-slide-carousel">
+          <img
+            src={images[currentIndex]}
+            alt={`Person ${currentIndex + 1}`}
+            className="carousel-media"
+          />
         </div>
         <div className="gradient-overlay"></div>
         <div className="hero-content">

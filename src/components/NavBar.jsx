@@ -46,6 +46,12 @@ const NavBar = ({ language, translations }) => {
           <li>
             <NavLink to="/community" onClick={closeMobileMenu}>{translations.community}</NavLink>
           </li>
+          <li>
+            <NavLink to="/gallery" onClick={closeMobileMenu}>{translations.gallery}</NavLink>
+          </li>
+          <li>
+            <NavLink to="/chatbot" onClick={closeMobileMenu}>{translations.chatbot}</NavLink>
+          </li>
         </ul>
         {mobileMenuOpen && (
           <ul className="mobile-menu">
@@ -69,6 +75,12 @@ const NavBar = ({ language, translations }) => {
             </li>
             <li>
               <NavLink to="/community" onClick={closeMobileMenu}>{translations.community}</NavLink>
+            </li>
+            <li>
+              <NavLink to="/gallery" onClick={closeMobileMenu}>{translations.gallery}</NavLink>
+            </li>
+            <li>
+              <NavLink to="/chatbot" onClick={closeMobileMenu}>{translations.chatbot}</NavLink>
             </li>
           </ul>
         )}
